@@ -1,0 +1,40 @@
+# ROLLING UPDATE STRATEGY
+# Explanation: Rolling update gradually replaces old pods with new pods one at a time.
+# It ensures zero downtime by keeping the application available throughout the update.
+# maxSurge: 1 - Allows 1 extra pod above desired count during update
+# maxUnavailable: 0 - No pods can be unavailable, ensuring zero downtime
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metroride-api-rolling
+  labels:
+    app: metroride-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: metroride-api
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: metroride-api
+    spec:
+      containers:
+        - name: metroride-api
+          image: metroride-api:v2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
