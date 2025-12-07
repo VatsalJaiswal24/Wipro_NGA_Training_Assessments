@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f6f9fc;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0d6efd;
+  color: white;
+  padding: 10px 20px;
+}
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+.logo-section img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+.menu a:hover, .menu .active {
+  text-decoration: underline;
+}
+.welcome {
+  text-align: center;
+  margin-top: 100px;
+}
+.welcome h1 {
+  color: #0d6efd;
+}
+.btn {
+  display: inline-block;
+  background-color: #198754;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.profile {
+  text-align: center;
+  margin-top: 80px;
+}
+.card {
+  background-color: white;
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+.card p {
+  margin: 8px 0;
+}
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #e9ecef;
+  margin-top: 80px;
+  font-size: 0.9rem;
+  color: #333;
+}
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .menu {
+    margin-top: 10px;
+  }
+  .card {
+    width: 85%;
+  }
+}
